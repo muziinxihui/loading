@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loading</title>
+  <meta charset="utf-8">
+  <script src="./jquery.js" type="text/javascript"></script>
+  <script src="./jquery.shCircleLoader.js" type="text/javascript"></script>
+  <style type="text/css">
+    .shadow{
+      position: absolute;
+      z-index: 999;
+      background-color: blue;
+      opacity:0.1;
+    }
+    .Loading{ position:absolute;width:110px; height:110px; text-align: center;}
+    .shclDefault{width:100px; height:100px;}
+    .active{
+      display: block;
+    }
+    .hide{display: none}
+  </style>
+</head>
+<body>
+<div class="shadow"></div>
+<div class="Loading">
+  <div id="shclDefault" class="shclDefault"></div>
+  <span>Loading...</span>
+</div>
+<!--<div>
+  <botton id="btn">点击</botton>
+</div>-->
+<script type="text/javascript">
+
+    $(".shadow").css({
+        width:$(window).width(),
+        height:$(window).height(),
+    });
+    //loading 的设计，居中
+    $('#shclDefault').shCircleLoader();
+    $(".Loading").css({
+        position: "absolute",
+        left: ($(window).width() - $(".Loading").outerWidth())/2,
+        top: ($(window).height() - $(".Loading").outerHeight())/2
+    });
+   /* //测试的事件
+    $("#btn").click(function () {
+        alert(1);
+    });
+    //定时器三秒后隐藏loading
+    setTimeout(function () {
+        $(".shadow").removeClass('active').addClass('hide');
+        $(".Loading").removeClass('active').addClass('hide');
+    },3000);
+
+    //显示loading
+        /!*$(".shadow").removeClass('hide').addClass('active')
+        $(".Loading").removeClass('hide').addClass('active');*!/*/
+</script>
+</body>
+</html>
